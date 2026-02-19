@@ -499,7 +499,7 @@ function showResultScreen() {
 function claimReward() {
   const payload = `codeQuest_${currentLang}_${totalScore}_${perfectLevels}_${totalErrors}`;
 
-  const url = `https://t.me/FernieXZBTBot?start=${payload}`;
+  const url = `https://t.me/FernieXBot?start=${payload}`;
   window.open(url, '_blank');
 
   saveStats(currentLang, totalScore);
@@ -558,3 +558,4 @@ function charSVG() {
 // INIT
 // ──────────────────────────────────────────
 selectLang('python');
+
