@@ -497,19 +497,13 @@ function showResultScreen() {
 // CLAIM REWARD
 // ──────────────────────────────────────────
 function claimReward() {
-  // Формат: codeQuest_lang_score_perfect_errors
   const payload = `codeQuest_${currentLang}_${totalScore}_${perfectLevels}_${totalErrors}`;
 
-  // Если открыто через Telegram WebApp — отправляем данные боту и закрываем
-  if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.sendData(payload);
-    window.Telegram.WebApp.close();
-    return;
-  }
-
-  // Fallback для браузера
   const url = `https://t.me/FernieXZBTBot?start=${payload}`;
   window.open(url, '_blank');
+
+  saveStats(currentLang, totalScore);
+  goMenu();
 }
 
 // ──────────────────────────────────────────
